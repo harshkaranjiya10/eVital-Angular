@@ -1,16 +1,19 @@
 <div>
-  <button>
+  <button (click)="onSelectUser()">
     <!-- Property Binding using [] brackets: Wrap the dynamic attribute -->
     <!-- Our example: [img] and [alt] -->
     <!--  bind element properties to dynamic values -->
-    <!-- <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name" /> --> 
-     
-    
+    <!-- <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name" /> -->
+    <!-- <span>{{ selectedUser.name }}</span> -->
+
     <!-- Instead of using explicit we will use js and ts -->
     <!-- Use that as Properties -->
-    <img [src]="imgPath" [alt]="selectedUser.name" />
+    <!-- <img [src]="imgPath" [alt]="selectedUser.name" /> -->
+    <!-- <span>{{ selectedUser.name }}</span> -->
     <!-- More retable code -->
 
-    <span>{{ selectedUser.name }}</span>
+    <!-- Signals -->
+    <img [src]="imgPath()" [alt]="selectedUser().name" />
+    <span>{{ selectedUser().name }}</span>
   </button>
 </div>
