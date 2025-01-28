@@ -48,7 +48,10 @@ export class TasksComponent {
     console.log(this.name);
     console.log("Selected user:");
     console.log(this.selectedUserTasks);
-    
   }
 
+  onCompletedTask(id: string) {
+    console.log("Completed task: " + id);
+    this.dummyTasks = this.dummyTasks.filter((task) => task.id !== id);
+  }
 }
