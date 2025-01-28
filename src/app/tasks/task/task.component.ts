@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
+  user = input();
+  constructor() {
 
+    console.log(this.user);
+  }
+  
 }

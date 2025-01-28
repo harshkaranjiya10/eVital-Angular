@@ -2,7 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { HeaderComponents } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users'
-import { TaskComponent } from './tasks/tasks.component';
+import { TaskComponent } from './tasks/task/task.component';
+// import { TaskComponent } from './tasks/tasks.component';
 @Component({
   selector: 'app-root',
   standalone: true,
