@@ -1,17 +1,19 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
+import { Task } from './task/task.model';
+import { NewTaskComponent } from "./new-task/new-task.component";
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
   @Input() name?: string;
   @Input() userId?: string;
-
+  isAddTaskStart: boolean = false;
   //name = input<string>();
   //userId = input<string>();
    dummyTasks = [
@@ -54,4 +56,21 @@ export class TasksComponent {
     console.log("Completed task: " + id);
     this.dummyTasks = this.dummyTasks.filter((task) => task.id !== id);
   }
+  onAddTaskStart() {
+    this.isAddTaskStart = true;
+  }
+  onCancelAddTask() {
+    this.isAddTaskStart = false;
+  }
+  onAddTask(newTask: {title: string, summary: string, dueDate: string }) {
+    this.dummyTasks.push({
+      id: new Date().getTime().toString(),
+      userId: this.userId!,
+      title: newTask.title,
+      summary: newTask.summary,
+      dueDate: newTask.dueDate,
+    });
+    this.isAddTaskStart = false;
+  }
+
 }
