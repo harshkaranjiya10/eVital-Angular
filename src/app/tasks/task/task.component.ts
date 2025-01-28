@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { Task } from './task.model';
 
 @Component({
   selector: 'app-task',
@@ -8,10 +9,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  user = input();
-  constructor() {
-
-    console.log(this.user);
-  }
-  
+  task = input<Task>();
 }

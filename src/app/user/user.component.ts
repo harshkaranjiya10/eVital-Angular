@@ -1,12 +1,8 @@
 import { Component, computed, signal, Input, input, Output, EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
-
+import { User } from './user.model'
 const rand = Math.floor(Math.random() * DUMMY_USERS.length);
-interface user {
-  id: string,
-  name: string,
-  avatar: string
-}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -25,7 +21,7 @@ export class UserComponent {
   // Checks every component and updates the relevent component.
   selectedUser = DUMMY_USERS[rand];
   // Take input from parent 
-  @Input({required: true}) user!: user;
+  @Input({required: true}) user!: User;
   @Input() selected!: boolean;
   @Output() select = new EventEmitter(); 
   // Use get keyword

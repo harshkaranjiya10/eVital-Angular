@@ -3,11 +3,12 @@ import { HeaderComponents } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users'
 import { TaskComponent } from './tasks/task/task.component';
+import { TasksComponent } from "./tasks/tasks.component";
 // import { TaskComponent } from './tasks/tasks.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponents, UserComponent, TaskComponent],
+  imports: [HeaderComponents, UserComponent, TasksComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -16,6 +17,7 @@ import { TaskComponent } from './tasks/task/task.component';
 export class AppComponent {
   users = DUMMY_USERS
   selectedUserId?: string;
+  userID?: string;
 
   get selectedUser() {
     console.log(this.users.find( (user) => user.id === this.selectedUserId)!);
